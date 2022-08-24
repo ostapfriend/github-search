@@ -1,0 +1,169 @@
+.currentAccount {
+  padding: 20px 10px;
+
+  border-radius: 5px;
+  border: 0.3px solid rgb(85, 119, 218);
+  background-color: white;
+
+  &__iconX {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__iconX-img {
+    width: 15px;
+    height: 15px;
+
+    cursor: pointer;
+  }
+
+  &__input {
+    max-width: 500px;
+  }
+
+  &__selectedRepository {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+  }
+
+  &__container {
+    margin-top: 40px;
+  }
+
+  &__container-icon {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-right: 20px;
+  }
+
+  &__container-card {
+    display: flex;
+    justify-content: space-around;
+
+    height: 60px;
+    padding: 0 50px;
+
+    border-radius: 5px;
+    border: 0.3px solid #262a30;
+    background-color: #262a30;
+
+    transition: all 1s ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+
+      box-shadow: 3px 5px 15px -3px rgb(198, 191, 191);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 0 40px;
+
+    gap: 40px;
+  }
+
+  &__biography {
+    color: #0d1117;;
+    margin: 40px 0;
+  }
+
+  &__img {
+    width: 250px;
+    height: 250px;
+
+    border-radius: 5px;
+  }
+
+  &__item > p {
+    color: #0d1117;
+    font-size: 28px;
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+
+    cursor: pointer;
+  }
+
+  &__container-icon {
+    margin-bottom: 40px;
+  }
+
+  &__repositories-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  &__repositories-text {
+    color: white;
+  }
+
+  &__repositories-name,
+  &__repositories-text--title {
+    color:#0d1117;
+  }
+
+  &__repositories-link {
+    width: 100%;
+    padding-right: 10px;
+  }
+
+  &__repositories-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 40px;
+  }
+
+  &__repositories-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+    padding: 0 50px;
+
+    border-radius: 5px;
+    border: 0.3px solid #262a30;
+    background-color: #262a30;
+
+    transition: all 1s ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+
+      box-shadow: 3px 5px 15px -3px rgb(198, 191, 191);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &__img {
+      width: 100px;
+      height: 100px;
+    }
+
+    &__item > p {
+      color: #0d1117;
+      font-size: 20px;
+    }
+  }
+}

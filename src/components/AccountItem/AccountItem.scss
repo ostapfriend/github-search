@@ -1,0 +1,75 @@
+.account-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: white;
+
+  border: 0.3px solid rgb(198, 191, 191);
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  padding: 10px 30px;
+
+  transition: all 1s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+
+    box-shadow: 3px 5px 15px -3px rgb(198, 191, 191);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__container-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 250px;
+  }
+
+  &__img {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 5px;
+  }
+
+  &__name,
+  &__repo {
+    color: #0d1117;
+    width: 250px;
+  }
+
+  &__icon {
+    width: 15px;
+    height: 15px;
+
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 5px 15px;
+
+    &__container-img {
+      width: 50px;
+    }
+
+    &__img {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__name,
+    &__repo {
+      width: 140px;
+    }
+  }
+}
