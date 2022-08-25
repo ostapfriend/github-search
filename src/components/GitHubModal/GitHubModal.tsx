@@ -4,6 +4,8 @@ import { getAccountRepo } from "../../api";
 import "./GitHubModal.scss";
 
 import xSolid from "../../images/xSolid.svg";
+import githubBrands from "../../images/githubBrands.svg";
+import checkSolid from "../../images/checkSolid.svg";
 
 type Props = {
   account: AccountGit | undefined;
@@ -13,12 +15,15 @@ type Props = {
 const GitHubModal: React.FC<Props> = ({ account, selectAccount }) => {
   const [accountsRepo, setAccountsRepo] = useState<AccountRepo[]>();
   const [accountRepo, setAccountRepo] = useState<AccountRepo | null>();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     getAccountRepo(account?.login).then((res) => setAccountsRepo(res));
   }, []);
 
   const handleInputChange = (event: { target: { value: string } }) => {
+    setQuery(event.target.value);
+
     const currentAccount = accountsRepo?.find(
       (accountRepo) => accountRepo.name === event.target.value
     );
@@ -63,15 +68,57 @@ const GitHubModal: React.FC<Props> = ({ account, selectAccount }) => {
           Biography:
           {account?.blog || " This user has not specified a biography"}
         </p>
+        <div className="currentAccount__container-field">
+          <div className="field">
+            <label className="label title is-5 has-text-black">
+              Write github repository
+            </label>
+            <div className="control has-icons-left has-icons-right">
+              <DebounceInput
+                type="text"
+                minLength={5}
+                debounceTimeout={500}
+                value={query}
+                onChange={handleInputChange}
+                className="input currentAccount__input"
+                placeholder="Search github user..."
+              />
+              <span className="icon is-small is-left">
+                <img
+                  src={githubBrands}
+                  alt="icon"
+                  className="github-accounts__icon-input"
+                />
+              </span>
+              <span className="icon is-small is-right">
+                {accountRepo ? (
+                  <img
+                    src={checkSolid}
+                    alt="check icon"
+                    className="github-accounts__icon-input"
+                  />
+                ) : (
+                  <img
+                    src={xSolid}
+                    alt="check icon"
+                    className="github-accounts__icon-input"
+                  />
+                )}
+              </span>
+            </div>
+            {accountRepo && query.length > 0 && (
+              <p className="help has-text-black">
+                This repository was found
+              </p>
+            )}
 
-        <DebounceInput
-          type="text"
-          minLength={5}
-          onChange={handleInputChange}
-          debounceTimeout={1000}
-          className="input currentAccount__input"
-          placeholder="Search github repositories..."
-        />
+            {!accountRepo &&  query.length > 0 && (
+              <p className="help has-text-black">
+                This repository was not found
+              </p>
+            )}
+          </div>
+        </div>
 
         <div className="currentAccount__selectedRepository">
           <h1 className="currentAccount__title">Current repository</h1>
@@ -82,7 +129,7 @@ const GitHubModal: React.FC<Props> = ({ account, selectAccount }) => {
                 href={`https://github.com/${account?.login}/${accountRepo.name}`}
                 className="currentAccount__repositories-link"
               >
-                <div className='currentAccount__repositories-container'>
+                <div className="currentAccount__repositories-container">
                   <h1 className="currentAccount__repositories-text">
                     {accountRepo.name}
                   </h1>
@@ -103,8 +150,6 @@ const GitHubModal: React.FC<Props> = ({ account, selectAccount }) => {
                 />
               </div>
             </div>
-
-
           ) : (
             <p className="currentAccount__repositories-text currentAccount__repositories-text--title">
               Write the name of the repository
@@ -117,6 +162,7 @@ const GitHubModal: React.FC<Props> = ({ account, selectAccount }) => {
         <ul className="currentAccount__repositories-list">
           {accountsRepo?.map((accountRepo) => (
             <a
+              key={accountRepo.id}
               href={`https://github.com/${account?.login}/${accountRepo.name}`}
               className="repositories-link"
             >

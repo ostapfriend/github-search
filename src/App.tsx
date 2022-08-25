@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+
       <ul className="App__circles">
           <li></li>
           <li></li>

@@ -5,6 +5,16 @@
   border: 0.3px solid rgb(85, 119, 218);
   background-color: white;
 
+  &__container-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__input {
+    width: 500px;
+  }
+
   &__iconX {
     display: flex;
     flex-direction: row;
@@ -17,10 +27,6 @@
     height: 15px;
 
     cursor: pointer;
-  }
-
-  &__input {
-    max-width: 500px;
   }
 
   &__selectedRepository {
@@ -116,7 +122,13 @@
 
   &__repositories-name,
   &__repositories-text--title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     color:#0d1117;
+
+    height: 60px;
   }
 
   &__repositories-link {
