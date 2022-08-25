@@ -34,6 +34,7 @@ const GitHubAccounts = () => {
     setQuery(event.target.value);
 
     getAccountGitHub(event.target.value).then((res) => {
+      console.log(res);
 
       const isInLocale = accountsGit.find(accountGit => accountGit.id === res.id)
 
@@ -86,7 +87,7 @@ const GitHubAccounts = () => {
             <div className="control has-icons-left has-icons-right">
               <DebounceInput
                 type="text"
-                minLength={5}
+                minLength={1}
                 debounceTimeout={500}
                 value={query}
                 onChange={handleInputChange}

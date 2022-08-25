@@ -76,7 +76,7 @@ const GitHubModal: React.FC<Props> = ({ account, selectAccount }) => {
             <div className="control has-icons-left has-icons-right">
               <DebounceInput
                 type="text"
-                minLength={5}
+                minLength={1}
                 debounceTimeout={500}
                 value={query}
                 onChange={handleInputChange}
