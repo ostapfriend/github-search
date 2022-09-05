@@ -5,6 +5,7 @@ What I used here:
   SCSS,
   REACT(hooks),
   Library react-debounce,
-  BULMA
+  BULMA,
+  LocaleStorage,
+  GitHub API
 
-Thank you for this test task) This is an interesting experience for me!
