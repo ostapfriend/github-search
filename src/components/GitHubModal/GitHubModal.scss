@@ -13,6 +13,10 @@
 
   &__input {
     width: 500px;
+
+    @media screen and (max-width: 590px) {
+      width: 300px;
+    }
   }
 
   &__iconX {
@@ -87,7 +91,7 @@
   }
 
   &__img {
-    width: 250px;
+    max-width: 250px;
     height: 250px;
 
     border-radius: 5px;
@@ -176,6 +180,12 @@
     &__item > p {
       color: #0d1117;
       font-size: 20px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &__item > p {
+      font-size: 16px;
     }
   }
 }
